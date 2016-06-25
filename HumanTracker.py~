@@ -71,7 +71,7 @@ def preprocess(cur, prv):
                 if ROI != None:
                     if classify.execute(ROI) == 'people':  #chack if the extracted region is tank
                         tag = True
-                        #mark the object with a bounding box
+                        #mark the tank with a bounding box
                         cv2.rectangle(disp, (x,y), (x+w, y+h), (255,0,0), 2)
                         cv2.putText(disp, 'Person', (x,y), 0, 0.5, (255,0,0))
                         
@@ -88,6 +88,7 @@ def preprocess(cur, prv):
 
 out = cv2.VideoWriter('output_side3.avi',-1, 24.0, (1440,480))         #initialise video output writer
 
+#cap = cv2.VideoCapture("D:/ToDo/DRDO/IRDatabase/videos/split/12.asf")
 cap = cv2.VideoCapture("D:/ToDo/pedestrian/dataset/D.avi")
 
 ret, prv = cap.read()                               #read the first frame
